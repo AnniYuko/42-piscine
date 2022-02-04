@@ -6,12 +6,12 @@ int	ft_atoi(char *str)
 	int	number;
 
 	i = 0;
-	m = 0;
+	m = 1;
 	number = 0;
 	while (!(str[i] >= '0' && str[i] <= '9'))
 	{
 		if (str[i] == '-')
-			sign *= -1;
+			m *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
