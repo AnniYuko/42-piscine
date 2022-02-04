@@ -15,9 +15,9 @@
 int	ft_fibonacci_bottom_up(int n)
 {
 	unsigned int i;
-	int one_before;
-	int two_before;
-	int fib;
+	unsigned int one_before;
+	unsigned int two_before;
+	unsigned int fib;
 
 	if (n < 0)
 		return(-1);

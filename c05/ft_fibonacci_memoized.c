@@ -15,7 +15,7 @@
 
 int ft_fibonacci_mem(int n)
 {
-	int *store;
+	int *store;				// the store should be outside this function
 	unsigned int i;
 
 	if (n < 0)

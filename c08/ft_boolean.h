@@ -13,6 +13,7 @@
 #ifndef FT_BOOLEAN_H
 #define FT_BOOLEAN_H
 
+#include <stdio.h>
 #include <unistd.h>
 
 #define EVEN_MSG "I have an even number of arguments.\n"

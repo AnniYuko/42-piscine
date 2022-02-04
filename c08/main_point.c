@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   main_point.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akroll <akroll@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:56:45 by akroll            #+#    #+#             */
-/*   Updated: 2022/01/26 18:56:45 by akroll           ###   ########.fr       */
+/*   Created: 2022/02/04 21:22:44 by akroll            #+#    #+#             */
+/*   Updated: 2022/02/04 21:22:44 by akroll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-#define FT_POINT_H
+#include "ft_point.h"
+#include <stdio.h>
 
-typedef struct point{
-	int x;
-	int y;
-}			t_point;
+void set_point(t_point *point)
+{
+	point->x = 42;
+	point->y = 21;
+}
 
-#endif
+int main(void)
+{
+	t_point point;
+
+	set_point(&point);
+	printf("x: %d\n", point.x);
+	printf("y: %d\n", point.y);
+	return (0);
+}
