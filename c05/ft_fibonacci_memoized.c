@@ -13,34 +13,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int	store[100];
+
 int ft_fibonacci_mem(int n)
 {
-	int *store;				// the store should be outside this function
-	unsigned int i;
-
 	if (n < 0)
 		return(-1);
-
-	// allocate memory and initialize with -1
-	store = malloc(sizeof(int) * (n + 1));
-	i = 0;
-	while (i < n + 1)
-	{
-		store[i] = -1;
-		i++;
-	}
-
-	store[0] = 0;
-	store[1] = 1;
-	if (store[n] >= 0)
+	if (n < 2)
+		return(n);
+	if (store[n] > 0)
 		return(store[n]);
+
 	store[n] = ft_fibonacci_mem(n - 1) + ft_fibonacci_mem(n - 2);
 	return(store[n]);
 }
 
-
 int main(int argc, char **argv)
 {
+	unsigned int i;
 	(void)argc;
 	printf("fibonacci of %d is:%d\n", atoi(argv[1]), ft_fibonacci_mem(atoi(argv[1])));
 	return(0);
