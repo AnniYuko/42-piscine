@@ -1,19 +1,29 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+objects = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+sources = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
+
 vpath %.h includes
 vpath %.c srcs
 
-all: ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-	gcc -Wall -Wextra -Werror ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-	ar c libft.a ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+all: $(sources) $(objects)
+.PHONY: all
 
-libft.a: ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-	gcc -Wall -Wextra -Werror ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-	ar c libft.a ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+libft.a: $(sources) $(objects)
+	$(CC) $(CFLAGS) $^
+	ar c $@ $(objects)
 
+#rm all temp generated files
+.PHONY: clean
 clean:
-	rm *.o				#rm all temporary generated files
+	rm *.o
 
+#rm all temp generated files plus binary from make all
+.PHONY: fclean
 fclean:
-	rm *.o libft.a		#rm all temporary generated files plus binary from make all
+	rm *.o libft.a
 
+#make fclean followed by make all
+.PHONY: re
 re:
-	fclean; make all	#like a make fclean followed by make all
+	fclean all
