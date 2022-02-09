@@ -1,17 +1,21 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-objects = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
-sources = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-
 vpath %.h includes
 vpath %.c srcs
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+OBJ = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+DEPS = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
 
-all: $(sources) $(objects)
+all: $(OBJ)
 .PHONY: all
 
-libft.a: $(sources) $(objects)
-	$(CC) $(CFLAGS) $^
-	ar c $@ $(objects)
+$(OBJ): %.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+#$(OBJ): %.o: %.c
+#	$(CC) -c $(CFLAGS) $< -o $@
+
+#libft.a: $(OBJ) ft.h
+#	ar cr $@ $^
 
 #rm all temp generated files
 .PHONY: clean
