@@ -15,11 +15,16 @@
 
 #include <unistd.h>
 
+#define TRUE 1
+#define FALSE 0
+
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);
 void	ft_putstr(char *str);
 int		ft_strlen(char *str);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strdup(char *src);
+char	*ft_strcpy(char *dest, char *src);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
 #endif
