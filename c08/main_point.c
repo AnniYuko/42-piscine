@@ -26,5 +26,6 @@ int main(void)
 	set_point(&point);
 	printf("x: %d\n", point.x);
 	printf("y: %d\n", point.y);
+
 	return (0);
 }

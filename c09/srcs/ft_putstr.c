@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akroll <akroll@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:26:46 by akroll            #+#    #+#             */
-/*   Updated: 2022/01/26 18:26:46 by akroll           ###   ########.fr       */
+/*   Created: 2022/02/09 00:07:40 by akroll            #+#    #+#             */
+/*   Updated: 2022/02/09 00:07:40 by akroll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-#define FT_ABS_H
+#include "../includes/ft.h"
 
-#define ABS(Value) (Value < 0 ? (Value * -1) : Value)
-
-#endif
+void	ft_putstr(char *str)
+{
+	while (*str != '\0')
+	{
+		write(1, str, 1);
+		str++;
+	}
+}

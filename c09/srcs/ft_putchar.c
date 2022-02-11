@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akroll <akroll@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:26:46 by akroll            #+#    #+#             */
-/*   Updated: 2022/01/26 18:26:46 by akroll           ###   ########.fr       */
+/*   Created: 2022/02/09 00:07:15 by akroll            #+#    #+#             */
+/*   Updated: 2022/02/09 00:07:15 by akroll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-#define FT_ABS_H
+#include "../includes/ft.h"
 
-#define ABS(Value) (Value < 0 ? (Value * -1) : Value)
-
-#endif
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}

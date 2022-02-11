@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akroll <akroll@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:26:46 by akroll            #+#    #+#             */
-/*   Updated: 2022/01/26 18:26:46 by akroll           ###   ########.fr       */
+/*   Created: 2022/02/09 00:08:25 by akroll            #+#    #+#             */
+/*   Updated: 2022/02/09 00:08:25 by akroll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-#define FT_ABS_H
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
 
-#define ABS(Value) (Value < 0 ? (Value * -1) : Value)
-
-#endif
+	i = 0;
+	while ((s1[i] == s2[i]) && s1[i] && s2[i])
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
