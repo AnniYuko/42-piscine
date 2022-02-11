@@ -13,6 +13,8 @@
 #ifndef __FT_H__
 #define __FT_H__
 
+#include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 
 #define TRUE 1
@@ -26,5 +28,6 @@ int		ft_strcmp(char *s1, char *s2);
 char	*ft_strdup(char *src);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
+void	ft_putnbr(int nb);
 
 #endif

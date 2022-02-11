@@ -6,7 +6,7 @@
 /*   By: akroll <akroll@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 16:18:06 by akroll            #+#    #+#             */
-/*   Updated: 2021/11/30 17:50:42 by akroll           ###   ########.fr       */
+/*   Updated: 2022/02/11 18:21:27 by akroll           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,4 @@ int ft_atoi(char *str)
 	if (m % 2)
 		number *= - 1;
 	return (number);
-}
-
-int	main(void)
-{
-	printf("%d", ft_atoi("  -+-+---+--8402321jjj_9004"));
 }

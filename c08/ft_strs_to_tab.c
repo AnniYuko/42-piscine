@@ -11,43 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-int	str_len(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(char *src)
-{
-	char *dest;
-
-	dest = malloc(sizeof(char) * (str_len(src) + 1));
-	ft_strcpy(dest, src);
-	return (dest);
-}
+#include "../c09/includes/ft.h"
+#include "ft_show_tab.c"
 
 struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 {
@@ -60,7 +25,7 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 	i = 0;
 	while (i < ac)
 	{
-		st[i].size = str_len(av[i]);
+		st[i].size = ft_strlen(av[i]);
 		st[i].str = av[i];
 		st[i].copy = ft_strdup(av[i]);
 		i++;
@@ -81,6 +46,6 @@ int	main(void)
 	av[2] = "function";
 	av[3] = "that";
 	av[4] = '\0';
-	ft_strs_to_tab(ac, av);
+	ft_show_tab(ft_strs_to_tab(ac, av));
 	return(0);
 }

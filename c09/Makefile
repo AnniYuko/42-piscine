@@ -2,8 +2,9 @@ vpath %.h includes
 vpath %.c srcs
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-OBJ = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
-DEPS = ft.h
+OBJ = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o \
+    ft_strcpy.o ft_strdup.o ft_strncpy.o ft_putnbr.o
+DEPS = -I ft.h -I ft_stock_str.h
 NAME = libft.a
 
 all: $(NAME)
@@ -11,9 +12,9 @@ all: $(NAME)
 libft.a: $(OBJ)
 	ar cr $@ $^
 
-#is the "-I ft.h" option necessary? it works fine without it as well
+#what about the "-I ft.h" option
 %.o: %.c $(DEPS)
-	$(CC) -c $(CFLAGS) -I $(DEPS) $< -o $@
+	$(CC) -c $(CFLAGS) $^ -o $@
 
 clean:
 	rm *.o
