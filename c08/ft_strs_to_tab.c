@@ -58,21 +58,19 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 	if (st == NULL)
 		return(NULL);
 	i = 0;
-	printf("size of struct is %ld\n", sizeof(t_stock_str));
 	while (i < ac)
 	{
-		st->size = str_len(av[i]);
-		st->str = av[i];
-		st->copy = ft_strdup(av[i]);
-		st++;
+		st[i].size = str_len(av[i]);
+		st[i].str = av[i];
+		st[i].copy = ft_strdup(av[i]);
 		i++;
 	}
-	st->str = 0;
-	while (i >= 0)
+	st[i].str = 0;
+	i = 0;
+	while (i <= ac)
 	{
-		printf("size: %d, str: %s, copy: %s\n", st->size, st->str, st->copy);
-		st--;
-		i--;
+		printf("size: %d, str: %s, copy: %s\n", st[i].size, st[i].str, st[i].copy);
+		i++;
 	}
 	return(st);
 }
@@ -90,5 +88,6 @@ int	main(void)
 	av[3] = "that";
 	av[4] = '\0';
 	ft_strs_to_tab(ac, av);
+	printf("size of struct: %zu\n", sizeof(t_stock_str));
 	return(0);
 }
