@@ -54,36 +54,41 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 	t_stock_str *st;
 	int i;
 
-	st = malloc(sizeof(char*)*(ac + 1));
+	st = malloc(sizeof(t_stock_str)*(ac+1));
 	if (st == NULL)
 		return(NULL);
 	i = 0;
-	printf("control point 1.\n");
-	//while (i < ac)
-	//{
+	printf("size of struct is %ld\n", sizeof(t_stock_str));
+	while (i < ac)
+	{
 		st->size = str_len(av[i]);
 		st->str = av[i];
 		st->copy = ft_strdup(av[i]);
-		//i++;
-	//}
-	//st->str = 0;
-	//while (i > 0)
-	//{
+		st++;
+		i++;
+	}
+	st->str = 0;
+	while (i >= 0)
+	{
 		printf("size: %d, str: %s, copy: %s\n", st->size, st->str, st->copy);
-		//i--;
-	//}
+		st--;
+		i--;
+	}
 	return(st);
 }
 
 int	main(void)
 {
 	char **av;
+	int ac;
 
-	av = malloc(sizeof(char*)*sizeof(av));
+	ac = 4;
+	av = malloc(sizeof(char*)*(ac + 1));
 	av[0] = "create";
 	av[1] = "a";
 	av[2] = "function";
 	av[3] = "that";
-	ft_strs_to_tab(4, av);
+	av[4] = '\0';
+	ft_strs_to_tab(ac, av);
 	return(0);
 }
