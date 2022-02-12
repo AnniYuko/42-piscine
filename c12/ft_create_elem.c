@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
+#include "../c09/includes/ft.h"
 
 t_list *ft_create_elem(void *data)
 {
+	t_list *elem;
 
-}
+	elem = malloc(sizeof(t_list));
+	if (elem == NULL)
+		return(NULL);
 
-int	main(void)
-{
-	int	elem;
-
-	elem = 8;
-	ft_create_elem(9);
+	elem->data = data;
+	elem->next = NULL;
+	return(elem);
 }
