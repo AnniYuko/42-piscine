@@ -15,8 +15,8 @@
 
 typedef struct s_list
 {
-	void *data;
-	char *next;
-} t_list;
+	struct s_list	*next;
+	void			*data;
+}	t_list;
 
 #endif
