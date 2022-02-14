@@ -12,6 +12,7 @@
 
 #ifndef FT_LIST_H
 #define FT_LIST_H
+#include <stdio.h>
 
 typedef struct s_list
 {
@@ -22,5 +23,6 @@ typedef struct s_list
 void	ft_list_push_front(t_list **begin_list, void *data);
 t_list *ft_create_elem(void *data);
 int	ft_list_size(t_list *begin_list);
+void	ft_list_push_back(t_list **begin_list, void *data);
 
 #endif

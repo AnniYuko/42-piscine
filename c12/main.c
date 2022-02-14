@@ -18,7 +18,7 @@ int main(void)
 	t_list *elem1;
 	t_list *elem2;
 	t_list *elem3;
-	t_list *begin_list;
+	t_list **begin_list;
 	void *data;
 
 	elem1 = ft_create_elem(data);
@@ -27,9 +27,10 @@ int main(void)
 	elem3 = ft_create_elem(data);
 	elem2->next = elem3;
 
-	begin_list = elem1;
+	begin_list = &elem1;
 
+	printf("Currently %d element(s) in the list.\n", ft_list_size(*begin_list));
 
-	printf("Currently %d element(s) in the list.\n", ft_list_size(begin_list));
+	ft_list_push_back(begin_list, data);
 	return(0);
 }
