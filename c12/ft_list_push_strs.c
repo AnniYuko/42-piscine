@@ -21,15 +21,18 @@ t_list	*ft_list_push_strs(int size, char **strs)
 
 	if (*strs == NULL || size == 0)
 		return(NULL);
-	i = 1;
-	while (i <= size)
+	i = 0;
+	while (i < size)
 	{
-		if (i == 1)
+		if (i == 0)
 			begin_list = ft_create_elem;
-
-		new_elem = ft_create_elem(data);
-		new_elem->next = begin_list;
-		begin_list = new_elem;
+		else
+		{
+			new_elem = ft_create_elem(data);
+			new_elem->next = begin_list;
+			begin_list = new_elem;
+		}
+		begin_list->data = strs[i];
 		i++;
 	}
 	return(begin_list);
