@@ -14,17 +14,10 @@
 
 t_list	*ft_list_last(t_list *begin_list)
 {
-	t_list	*p_elem;
-
-	//empty list
-	if (begin_list == NULL)
-		return(NULL);
-
-	//one or more elem in list
-	p_elem = begin_list;
-	while (p_elem->next != NULL)
-		p_elem = p_elem->next;
+	//if more than one elem in list
+	while (begin_list->next != NULL)
+		begin_list = begin_list->next;
 
 	//reached last elem
-	return(p_elem);
+	return(begin_list);
 }
