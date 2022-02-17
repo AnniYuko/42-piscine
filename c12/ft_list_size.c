@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "../c09/includes/ft.h"
 
 int	ft_list_size(t_list *begin_list)
 {
