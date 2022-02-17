@@ -11,25 +11,13 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "ft_create_elem.c"
-//#include "ft_list_size.c"
 
 void	ft_list_push_back(t_list **begin_list, void *data)
 {
-	t_list	*p_elem;
-
-	if (*begin_list == NULL)
+	while ((*begin_list)->next != NULL)
 	{
-		*begin_list = ft_create_elem(data);
-		return;
+		*begin_list = (*begin_list)->next;
 	}
-	p_elem = *begin_list;
-	while (p_elem->next != NULL)
-	{
-		p_elem = p_elem->next;
-	}
-	p_elem->next = ft_create_elem(data);
-
-	//printf("Currently %d element(s) in the list.\n", ft_list_size(*begin_list));
+	(*begin_list)->next = ft_create_elem(data);
 	return;
 }
