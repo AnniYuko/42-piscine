@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "../c09/includes/ft.h"
-#include "ft_create_elem.c"
 
 void	ft_list_push_front(t_list **begin_list, void *data)
 {
