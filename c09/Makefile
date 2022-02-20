@@ -9,11 +9,11 @@ NAME = libft.a
 
 all: $(NAME)
 
-libft.a: $(OBJ)
-	ar cr $@ $^
+$(NAME): $(OBJ)
+	ar cr $@ $<
 
 $(OBJ): %.o: %.c
-	$(CC) -I $(headers) $(CFLAGS) -c $^ -o $@
+	$(CC) -I $(headers) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
