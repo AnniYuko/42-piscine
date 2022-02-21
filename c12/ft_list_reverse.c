@@ -16,7 +16,6 @@ void	ft_list_reverse(t_list **begin_list)
 {
 	t_list	*before;
 	t_list	*next;
-	t_list	*elem;
 
 	//empty list
 	if (*begin_list == NULL)
