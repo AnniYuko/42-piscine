@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "../c09/includes/ft.h"
 
 t_list *ft_create_elem(void *data)
 {
