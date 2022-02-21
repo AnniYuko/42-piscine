@@ -27,11 +27,10 @@ void	ft_list_reverse(t_list **begin_list)
 
 	while ((*begin_list)->next != NULL)
 	{
-		elem = *begin_list;
 		next = (*begin_list)->next;
 		(*begin_list)->next = before;
+		before = *begin_list;
 		(*begin_list) = next;
-		before = elem;
 	}
 	//last element
 	(*begin_list)->next = before;
