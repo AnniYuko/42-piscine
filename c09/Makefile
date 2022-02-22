@@ -1,25 +1,28 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -rf
-srcdir = srcs
-headers = includes
-SRC := $(wildcard $(srcdir)/*.c)
-OBJ := $(SRC:%.c=%.o)
-NAME = libft.a
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
+RM := rm -rf
+srcdir := srcs
+incldir := includes
+sources := $(wildcard $(srcdir)/*.c)
+headers := $(wildcard $(incldir)/*.h)
+objects := $(sources:.c=.o)
 
-all: $(NAME)
+.PHONY: all
+all: libft.a
 
-$(NAME): $(OBJ)
-	ar cr $@ $<
+libft.a: $(objects)
+	ar cr $@ $^
 
-$(OBJ): %.o: %.c
-	$(CC) -I $(headers) $(CFLAGS) -c $< -o $@
+$(objects): %.o: %.c $(headers)
+	$(CC) $(CFLAGS) -c $< -o $@
 
+.PHONY: clean
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(objects)
 
+.PHONY: fclean
 fclean:
-	$(RM) $(OBJ) $(NAME)
+	$(RM) $(objects) libft.a
 
+.PHONY: re
 re: fclean all
-.PHONY: all clean fclean re
