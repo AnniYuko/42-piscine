@@ -23,7 +23,14 @@ void	ft_list_print(t_list *begin_list)
 	while (begin_list != NULL)
 	{
 		printf("elem %d (%p)\n", i, begin_list);
+
+		#ifdef INT_DATA
 		printf("\tdata: %d\n", *((int*)(begin_list->data)));
+		#endif
+		#ifdef STRS_DATA
+		printf("\tdata: %s\n", *((char**)(begin_list->data)));
+		#endif
+
 		printf("\tnext: %p\n\n", begin_list->next);
 		begin_list = begin_list->next;
 		i++;
