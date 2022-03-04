@@ -17,18 +17,19 @@
 	values might have leading whitespace
 */
 
-void	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	a;
 	int	b;
 
 	if (argc != 4)
-		return;
+		return(1);
 
 	a = ft_atoi(argv[1]);		//get value1 as int
 	b = ft_atoi(argv[3]);		//get value2 as int
-	ft_putnbr(ft_math(argv, a, b));
+	ft_math(argv, a, b);
 	write(1, "\n", 1);
+	return(0);
 }
 
 int	ft_math(char **argv, int a, int b)
@@ -42,10 +43,10 @@ int	ft_math(char **argv, int a, int b)
 	math_arr[4] = &mod;
 
 	if (*argv[2] == '+')
-		return(math_arr[0](a, b));
+		ft_putnbr(math_arr[0](a, b));
 
 	else if (*argv[2] == '-')
-		return(math_arr[1](a, b));
+		ft_putnbr(math_arr[1](a, b));
 
 	else if (*argv[2] == '/')
 	{
@@ -55,14 +56,16 @@ int	ft_math(char **argv, int a, int b)
 			return(math_arr[2](a, b));
 	}
 	else if (*argv[2] == '*')
-		return(math_arr[3](a, b));
+		ft_putnbr(math_arr[3](a, b));
 
 	else if (*argv[2] == '%')
 	{
 		if (b == 0)
 			write(1, "Stop: modulo by zero", 20);
 		else
-			return(math_arr[4](a, b));
+			ft_putnbr(math_arr[4](a, b));
 	}
+	else
+		ft_putnbr(0);
 	return(0);
 }
