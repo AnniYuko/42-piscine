@@ -16,16 +16,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
-typedef enum{
-	FALSE,
-	TRUE
-}bool;
-
 void	ft_putnbr(int nb);
 int		ft_atoi(char *str);
 int		ft_math(char **argv, int a, int b);
-bool	is_numeric(char *str);
-bool	is_whitespace(char *str);
 int		add(int a, int b);
 int		sub(int a, int b);
 int		div(int a, int b);

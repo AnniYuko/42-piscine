@@ -21,7 +21,8 @@ int	ft_atoi(char *str)
 	nb = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] != '\0' && is_whitespace(str))
+	while (str[i] != '\0' && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\r' || *str == '\v' || *str == '\f'))			//whitespace
 	{
 		i++;
 	}
@@ -31,7 +32,7 @@ int	ft_atoi(char *str)
 			sign *= -1;
 		i++;
 	}
-	while (str[i] != '\0' && is_numeric(str))
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;

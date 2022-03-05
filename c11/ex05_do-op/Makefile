@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 CC := gcc
+CFLAGS := -Wall -Wextra -Werror
 RM := rm -f
 SRC := $(wildcard *.c)
 NAME := do-op
