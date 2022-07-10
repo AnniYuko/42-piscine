@@ -17,6 +17,8 @@
 	values might have leading whitespace
 */
 
+// ! check for undefined behaviour (MAXINT+1, MININT-1)
+
 int	main(int argc, char **argv)
 {
 	int	a;
